@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Collections.Generic;
+using System.Net.Http;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Math;
 
@@ -7,7 +8,7 @@ namespace CertMSGame
 {
 	public class GAFacade
 	{
-		private const string Path = @"D:\Programming\Master\CertMSGA\CertMSGA\bin\Debug\CertMSGA.exe";
+		private const string Path = "CertMSGA";
 
 		public static RsaKeyParameters GetPublicKey()
 		{
@@ -27,22 +28,16 @@ namespace CertMSGame
 
 		private static string CallProgramWith(string program, params string[] arguments)
 		{
-			var proc = new ProcessStartInfo
-			{
-				FileName = program,
-				Arguments = string.Join(" ", arguments),
-				UseShellExecute = false,
-				RedirectStandardOutput = true
-			};
-			string response;
-			using (var process = Process.Start(proc))
-			{
-				using (var reader = process?.StandardOutput)
-				{
-					response = reader?.ReadToEnd();
-				}
-			}
-			return response;
+			var client = new HttpClient();
+			var values = new Dictionary<string, string>();
+			for(var i=0; i < arguments.Length; i++)
+				values.Add(i.ToString(), arguments[i]);
+			var content = new FormUrlEncodedContent(values);
+
+			var response = client.PostAsync($"http://localhost:8080/start/{program}", content).Result;
+
+			var responseString = response.Content.ReadAsStringAsync().Result;
+			return responseString;
 		}
 	}
 }
