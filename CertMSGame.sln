@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertMSGame", "CertMSGame\CertMSGame.csproj", "{DBFE24C6-74C1-4ECF-B69D-690D74539A4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertMSGame.Tests", "CertMSGame.Tests\CertMSGame.Tests.csproj", "{9003E0DC-515F-4A25-93C5-7968BAA7E3C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DBFE24C6-74C1-4ECF-B69D-690D74539A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBFE24C6-74C1-4ECF-B69D-690D74539A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBFE24C6-74C1-4ECF-B69D-690D74539A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9003E0DC-515F-4A25-93C5-7968BAA7E3C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9003E0DC-515F-4A25-93C5-7968BAA7E3C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9003E0DC-515F-4A25-93C5-7968BAA7E3C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9003E0DC-515F-4A25-93C5-7968BAA7E3C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
