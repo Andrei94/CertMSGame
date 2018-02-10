@@ -6,9 +6,9 @@ namespace CertMSGame
 	{
 		public static ICommand Route(IReadOnlyList<string> args)
 		{
-			if (args[0].Equals("sign"))
+			if (args[0].Equals(AppProperties.Sign))
 				return new SignCommand(args);
-			if (args[0].Equals("verify"))
+			if (args[0].Equals(AppProperties.Verify))
 				return new VerifyCommand(args);
 			return new MalformedCommand();
 		}

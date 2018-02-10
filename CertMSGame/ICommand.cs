@@ -19,8 +19,8 @@ namespace CertMSGame
 
 		public string Execute()
 		{
-			var pcGame = new PcGame(FromBase64String(args[1]), GAFacade.GetPublicKey());
-			var game = pcGame.CreateGame(FromBase64String(GAFacade.Sign(pcGame.GenerateGameRequest())));
+			var pcGame = new PcGame(FromBase64String(args[1]), GAFacade.GetPublicKey(args[2]));
+			var game = pcGame.CreateGame(FromBase64String(GAFacade.Sign(pcGame.GenerateGameRequest(), args[2])));
 			return ToBase64String(game.Signature);
 		}
 	}
@@ -36,7 +36,7 @@ namespace CertMSGame
 
 		public string Execute()
 		{
-			return GAFacade.Verify(new Game(FromBase64String(args[1]), FromBase64String(args[2])));
+			return GAFacade.Verify(new Game(FromBase64String(args[1]), FromBase64String(args[2])), args[3]);
 		}
 	}
 
